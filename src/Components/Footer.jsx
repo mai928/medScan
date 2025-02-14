@@ -11,12 +11,12 @@ const Footer = () => {
   return (
    <section className=' px-3 lg:px-20 py-10'>
       <div className='flex items-center justify-between'>
-        <img className='m-auto lg:w-auto w-20' src={logo}/>
-        <div className='flex items-center pt-2 gap-1 lg:px-10 lg:gap-10'>
+        <img className='  lg:w-auto w-20' src={logo}/>
+        <div className='flex items-center pt-2 gap-2 lg:px-10 lg:gap-10'>
            {
             NavbarData.map((item)=>(
                 <div className='text-Secondary-darkGray font-bold lg:font-[600]'>
-                    <Link className='text-[10px] lg:text-base' to={item.path}>{item.name}</Link>
+                    <Link className=' text-[10px] sm:text-[15px] md:text-[14px] lg:text-base' to={item.path}>{item.name}</Link>
                 </div>
             ))
            } 
@@ -24,7 +24,7 @@ const Footer = () => {
         </div>
 
       </div>
-      <div className='border-[1.6px] border-black-dark shadow-lg opacity-90  w-full rounded-full my-5'/>
+      <div className=' border-[1px] lg:border-[1.6px]  border-Secondary-darkGray lg:border-black-dark shadow-lg opacity-90  w-full rounded-full my-5'/>
        
        <div className=' m-auto text-center lg:flex justify-between items-center'>
         <p className='text-xs lg:text-sm font-[400] text-black-dark'>All rights reserved ® uifry.com | Terms and conditions apply!</p>

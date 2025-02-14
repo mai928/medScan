@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import logo from '../assets/logo.png'
 import menu from '../assets/icons/menue.png'
+import close from '../assets/icons/close.png'
 import { Link } from 'react-router-dom'
 import { NavbarData } from '../../data'
 import RegistrationBtns from './RegistrationBtns'
@@ -24,6 +25,8 @@ const Navbar = () => {
 
       } else {
         setshowmenuIcon(false)
+        setToggle(false)
+
       }
     }
     handleSize() // Initial check
@@ -41,16 +44,16 @@ const Navbar = () => {
     <section className='' >
       {
         showmenuIcon ? (
-          <div className=' bg-white py-4 px-3 flex justify-between items-center shadow-lg'>
+          <div className=' bg-white py-4 px-3 flex justify-between items-center shadow-lg  border-b-[3px] border-opacity-20 border-Secondary-darkGray'>
             <div className='flex items-center gap-2'>
-              <img width={24} height={24} src={menu} />
+              <img className='cursor-pointer' onClick={() => setToggle(!toggle)} width={24} height={24} src={menu} />
               <img width={71} height={36} src={logo} />
             </div>
-            <RegistrationBtns gap='gap-1'  className='px-3 py-1 text-[12px] font-[500]' />
+            <RegistrationBtns gap='gap-1' className='px-3 py-1 text-[12px] font-[500]' />
           </div>
 
 
-        ) : (<div className=' bg-white px-20 py-2 flex  items-center justify-between'>
+        ) : (<div className=' bg-white px-20 py-2 flex  items-center justify-between border-b-[3px] border-opacity-20 border-Secondary-darkGray '>
           <img src={logo} width={120} height={60} />
           <div className='flex items-center gap-14' >
             {
@@ -66,6 +69,32 @@ const Navbar = () => {
         </div>)
       }
 
+
+
+      {/* SideBar */}
+      <div ref={sidebarRef}>
+        <div className={`sidebar ${toggle ? "open" : "close"} `}>
+          <div className="p-10">
+
+            <ul>
+              {NavbarData.map((item, index) => (
+                <div key={item.name} className="flex justify-center  mt-10">
+
+                  <li className=' m-auto'>
+                    <Link className=" text-lg font-[400] hover:text-Primary hover:font-bold text-Secondary-mediumGray" to={item.path} onClick={() => setToggle(false)}>
+                      {item.name}
+                    </Link>
+                  </li>
+                </div>
+              ))}
+            </ul>
+
+
+          </div>
+          {/* close  */}
+          <img onClick={()=>setToggle(false)} className='m-auto cursor-pointer' src={close}/>
+        </div>
+      </div>
     </section>
   )
 }

@@ -10,7 +10,7 @@ const AskQuestion = () => {
     const [UId, setUId] = useState('')
     const openToggle = (id) => {
         setUId(id)
-        setShow(true)
+        setShow((prev)=>!prev)
     }
     return (
         <section className='lg:py-10 px-3 lg:px-20'>

@@ -10,8 +10,8 @@ export const NavbarData = [
 		path: "/",
 	},
 	{
-		name: "Service",
-		path: "/service",
+		name: "Services",
+		path: "/services",
 	},
 	{
 		name: "About Us",

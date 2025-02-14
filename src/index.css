@@ -23,7 +23,7 @@ body {
 
 .sidebar {
   position: fixed;
-  top: 10;
+  top: 0;
   left: -300px;
   width: 300px;
   height: 100%;
@@ -33,7 +33,7 @@ body {
 
 .sidebar.open {
   transform: translateX(300px);
-  z-index: 9999;
+  z-index: 10;
 }
 
 

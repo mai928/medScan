@@ -10,7 +10,7 @@ import DownloadApp from '../Components/DownloadApp'
 
 const AboutUs = () => {
     return (
-        <section className=' px-3 lg:px-20'>
+        <section className=' px-3 lg:px-20  pt-20 lg:pt-0'>
             <div className='relative pt-6 lg:py-5'>
                 <h3 className='lg:pt-10 text-center font-[700] text-xl lg:text-[40px] text-black-medium'>About Us </h3>
                 <img className='m-auto py-2 w-32 lg:w-auto lg:max-w-[200px]' src={underLine} alt='Underline' />

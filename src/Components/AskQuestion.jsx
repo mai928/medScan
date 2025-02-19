@@ -35,17 +35,15 @@ const AskQuestion = () => {
                                          <img onClick={() => setShow(false)} className='w-6 h-6 cursor-pointer' src={upArrow}/>
                                         </div>
                                         <div className='border-[1px] opacity-70 lg:w-[70%] m-auto border-white my-4' />
-                                        <div className='lg:flex  text-gray-200 justify-between items-center text-sm lg:text-lg font-[400]'> 
+                                        <div className=' grid lg:grid lg:grid-cols-3  md:grid-cols-2 grid-cols-1 text-gray-200  text-sm lg:text-lg font-[400]'> 
                                             <p>{item.answer.answ1}</p>
                                             <p>{item.answer.answ2}</p>
-                                            <p>{item.answer.answ3}</p></div>
-
-                                            <div className='lg:flex text-gray-200 justify-between items-center text-sm lg:text-lg font-[400]'> 
+                                            <p>{item.answer.answ3}</p>
                                             <p>{item.answer.answ4}</p>
                                             <p>{item.answer.answ5}</p>
                                             <p>{item.answer.answ6}</p>
                                         </div>
-                                    </div>
+                                        </div>
                                 }
                             </div>
                         </div>

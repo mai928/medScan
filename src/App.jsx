@@ -5,20 +5,28 @@ import Footer from "./Components/Footer"
 import Services from "./Pages/Services"
 import AboutUs from "./Pages/AboutUs"
 import ContactUs from "./Pages/ContactUs"
+import Login from "./Pages/Login"
+import SignUp from "./Pages/SignUp"
+import Scan from "./Pages/Scan"
 
 function App() {
 
   return (
-   <BrowserRouter>
-   <Navbar/>
-     <Routes>
-     <Route path="/" element={<Home/>}/>
-     <Route path="/services" element={<Services/>}/>
-     <Route path="/about" element={<AboutUs/>}/>
-     <Route path="/contact" element={<ContactUs/>}/>
-     </Routes>
-     <Footer/>
-   </BrowserRouter>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signUp" element={<SignUp/>} />
+        <Route path="/scan" element={<Scan/>} />
+        
+        
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   )
 }
 

@@ -17,7 +17,7 @@ const Services = () => {
                 <p className='  py-5 lg:w-[40%] m-auto text-center font-[300] text-xl text-gray-600'>We are using artificial intelligence in early diagnosis
                     of brain tumor and skin cancer</p>
             </div>
-            <div className='px-4'>
+            <div className='px-4 '>
                  <div className='lg:flex items-center justify-between lg:flex-row flex flex-col-reverse  lg:py-20'>
                 <div className='lg:w-1/2'>
                     <h3 className='font-[500] text-[14px] lg:text-[28px] text-black-medium text-center lg:text-start pt-5 lg:py-2'>There are many types of brain tumors, and brain tumors are mainly divided into two types:</h3>

@@ -18,7 +18,7 @@ const ContactUs = () => {
         <div className=' relative  lg:flex w-full border-[1px] p-2 bg-white border-gray-300 rounded-lg '>
 
           {/* info */}
-          <div className=' w-full lg:w-[35%] bg-Primary  text-white rounded-lg '>
+          <div className=' w-full lg:w-[35%] bg-Primary  text-white rounded-lg  '>
             <div className=' pt-10 ps-10'>
               <h3 className='pb-10 text-2xl lg:text-3xl font-[500] '>Contact Information</h3>
               <div className='flex  gap-5'><img src={call} /> <p className='text-[16px] '>+20 1204944172 </p> </div>

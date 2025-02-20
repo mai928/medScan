@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import logo from '../assets/logo.png'
 import menu from '../assets/icons/menue.png'
 import close from '../assets/icons/close.png'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { NavbarData } from '../../data'
 import RegistrationBtns from './RegistrationBtns'
 import { useAuth } from '../Auth/AuthProvider'
@@ -10,6 +10,7 @@ import { useAuth } from '../Auth/AuthProvider'
 const Navbar = () => {
 
   const { user, logOut } = useAuth()
+  const navigate = useNavigate()
 
   console.log(user)
   const username = localStorage.getItem('userName')
@@ -18,6 +19,7 @@ const Navbar = () => {
   const handlelogout = () => {
     setIsDropdownOpen(false)
     logOut()
+       navigate('/')
     }
 
   const toggleDropdown = () => {

@@ -31,7 +31,7 @@ const SignUp = () => {
         console.log('Sending data:', registerData); // Log the data being sent
 
         e.preventDefault();
-        const apiUrl = 'http://medscanlogin.runasp.net/api/Auth/Register'
+        const apiUrl = 'https://medscanlogin.runasp.net/api/Auth/Register'
 
         try {
             const response = await fetch(apiUrl, {

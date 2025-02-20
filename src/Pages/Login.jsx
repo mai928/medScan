@@ -5,7 +5,7 @@ import apple from '../assets/icons/apple.png'
 import face from '../assets/icons/face.png'
 import google from '../assets/icons/google.png'
 import { useAuth } from '../Auth/AuthProvider'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Login = () => {
 
@@ -13,7 +13,7 @@ const Login = () => {
     const [messageType, setMessageType] = useState('')
     const navigate = useNavigate()
 
-    const { auth, login } = useAuth()
+    const { setAuth, login } = useAuth()
     const [email, setMail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -46,7 +46,7 @@ const Login = () => {
                 }, 5000);
                 const responseData = await response.json()
                 login(responseData.userName)
-                auth(responseData.isAuth)
+                setAuth(responseData.isAuth)
                 console.log(responseData)
                 console.log('success')
 
@@ -121,7 +121,7 @@ const Login = () => {
                         <img src={google} />
                         <img src={apple} />
                     </div>
-                    <p className='pt-2 text-black-medium'>Don’t have an account ? <button className='text-Primary'>Sign Up</button></p>
+                    <p className='pt-2 text-black-medium'>Don’t have an account ? <Link to={'/signUp'}  className='text-Primary'>Sign Up</Link></p>
                 </div>
 
             </div>

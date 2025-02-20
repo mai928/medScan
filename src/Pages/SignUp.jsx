@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
 
 const SignUp = () => {
 
-    const { login, auth } = useAuth()
+    const { login, setAuth } = useAuth()
     const [message, setMessage] = useState('')
     const [messageType, setMessageType] = useState('')
     const navigate = useNavigate()
@@ -45,14 +45,15 @@ const SignUp = () => {
             if (response.ok) {
                 setMessage('Registration successful!')
                 setMessageType('success')
+
                 setTimeout(() => {
                     navigate('/login')
                 }, 5000)
 
                 console.log(response)
                 const responseData = await response.json()
-                login(responseData)
-                auth(responseData.isAuth)
+                login(responseData.userName)
+                setAuth(responseData.isAuth)
                 console.log('login', responseData)
 
             } else {

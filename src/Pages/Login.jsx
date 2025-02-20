@@ -26,7 +26,7 @@ const Login = () => {
 
         e.preventDefault();
 
-        const apiUrl = 'https://medscanlogin.runasp.net/api/Auth/Login';
+        const apiUrl = 'http://medscanlogin.runasp.net/api/Auth/Login';
 
         try {
             const response = await fetch(apiUrl, {

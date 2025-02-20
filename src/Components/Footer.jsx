@@ -9,7 +9,7 @@ import twitter from '../assets/icons/twitter.png'
 
 const Footer = () => {
   return (
-   <section className=' px-3 lg:px-20 py-10'>
+   <section className=' px-3 lg:px-20 py-10 '>
       <div className='flex items-center justify-between'>
         <img className='  lg:w-auto w-20' src={logo}/>
         <div className='flex items-center pt-2 gap-2 lg:px-10 lg:gap-10'>

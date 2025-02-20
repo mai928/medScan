@@ -5,10 +5,14 @@ import apple from '../assets/icons/apple.png'
 import face from '../assets/icons/face.png'
 import google from '../assets/icons/google.png'
 import { useAuth } from '../Auth/AuthProvider'
+import { useNavigate } from 'react-router-dom'
 
 const SignUp = () => {
 
-    const { login, isAuth } = useAuth()
+    const { login, auth } = useAuth()
+    const [message, setMessage] = useState('')
+    const [messageType, setMessageType] = useState('')
+    const navigate = useNavigate()
     const [registerData, setRegisterData] = useState({
         firstName: '',
         lastName: '',
@@ -39,49 +43,62 @@ const SignUp = () => {
             })
 
             if (response.ok) {
-                console.log('successfull')
+                setMessage('Registration successful!')
+                setMessageType('success')
+                setTimeout(() => {
+                    navigate('/login')
+                }, 5000)
+
                 console.log(response)
                 const responseData = await response.json()
                 login(responseData)
-                isAuth(responseData.isAuth)
+                auth(responseData.isAuth)
                 console.log('login', responseData)
-                localStorage.setItem('userName', responseData.userName)
 
             } else {
-
+                setMessage('Registration Failed!')
+                setMessageType('failed')
                 console.log('failed', response.status);
                 try {
                     const errorText = await response.text(); // Get the response as text
                     console.error('Error Text:', errorText);
-                    alert(`Registration failed: ${response.status} - ${errorText}`); // Show error
+                    console.log(`Registration failed: ${response.status} - ${errorText}`); // Show error
                 } catch (error) {
                     console.error('Error parsing error response:', error);
-                    alert(`Registration failed: ${response.status} - Could not parse error response`);
+                    console.log(`Registration failed: ${response.status} - Could not parse error response`);
                 }
             }
         } catch (e) {
             console.error('error', e)
+            setMessage('Registration Failed!')
+            setMessageType('failed')
+
+
         }
-        // setRegisterData(
-        //     {
-        //         firstName: '',
-        //         lastName: '',
-        //         userName: '',
-        //         email: '',
-        //         password: ''
-        //     }
-        // )
+        setRegisterData(
+            {
+                firstName: '',
+                lastName: '',
+                userName: '',
+                email: '',
+                password: ''
+            }
+        )
+
+        setTimeout(() => {
+            setMessage('')
+        }, 3000)
 
     }
     return (
-        <section className=' px-20 py-10 relative'>
-            <img className='m-auto  w-[70%]  h-full  relative z-0' src={shadow} />
-            <div className='flex  w-[70%] h-[86%]   absolute  start-60  top-14'>
-                <div className='w-1/2 bg-linear-gradient  rounded-s-3xl  flex justify-center items-center '>
+        <section className=' lg:px-20 py-10 relative'>
+            <img className='m-auto  w-[70%]  h-full  hidden lg:block  relative z-0' src={shadow} />
+            <div className='lg:flex  lg:w-[70%] lg:h-[86%]      lg:absolute  start-60  top-14'>
+                <div className='lg:w-1/2 bg-linear-gradient  rounded-s-3xl  hidden lg:flex justify-center items-center '>
                     <img className=' z-20 w-72' src={logo} />
                 </div>
-                <form onSubmit={handleSubmit} className='bg-white w-1/2   rounded-e-3xl px-8 py-14'>
-                    <h2 className='text-center font-semibold text-2xl py-10'>Creat your account!</h2>
+                <form onSubmit={handleSubmit} className='bg-white w-full lg:w-1/2   rounded-e-3xl px-8 py-14'>
+                    <h2 className='text-center font-semibold text-2xl py-5'>Creat your account!</h2>
                     <div className='flex gap-3 py-2'>
                         <div className=''>
                             <label className='block  mb-2 text-[14px]' >First Name</label>
@@ -111,10 +128,11 @@ const SignUp = () => {
                         <input onChange={handleRegisterChange} name='password' value={registerData.password} type='password' placeholder='password' className='w-full border-[1px] rounded-lg ps-3 py-1 border-slate-300 placeholder:text-sm' />
 
                     </div>
-                    <div className='flex justify-center items-center '>
-                        <button className='bg-Primary text-white' type='submit'>Sign Up</button>
+                    <div className='flex justify-center items-center my-2 '>
+                        <button className='bg-Primary w-full py-2 rounded-lg text-white font-bold text-lg' type='submit'>Sign Up</button>
 
                     </div>
+                    <div><p className={`text-center font-semibold py-1  ${messageType === 'failed' ? 'text-red-700' : 'text-Primary'}`}>{message}</p></div>
 
 
                     <div className='text-center py-5'>

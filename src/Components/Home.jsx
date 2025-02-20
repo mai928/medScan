@@ -10,12 +10,12 @@ import Footer from './Footer'
 const Home = () => {
   return (
     <div>
-        <MainSection/>
-        <HowSection/>
-       <WhySection/>
-        <MeetDoctor/>
-       <AskQuestion/>
-          <DownloadApp/>
+      <MainSection />
+      <HowSection />
+      <WhySection />
+      <MeetDoctor />
+      <AskQuestion />
+      <DownloadApp />
     </div>
   )
 }

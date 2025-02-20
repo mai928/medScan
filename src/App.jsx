@@ -8,24 +8,26 @@ import ContactUs from "./Pages/ContactUs"
 import Login from "./Pages/Login"
 import SignUp from "./Pages/SignUp"
 import Scan from "./Pages/Scan"
+import { AuthProvider } from "./Auth/AuthProvider"
 
 function App() {
 
   return (
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/contact" element={<ContactUs />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signUp" element={<SignUp/>} />
-        <Route path="/scan" element={<Scan/>} />
-        
-        
-      </Routes>
-      <Footer />
+      <AuthProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signUp" element={<SignUp />} />
+          <Route path="/scan" element={<Scan />} />
+        </Routes>
+        <Footer />
+      </AuthProvider>
+
     </BrowserRouter>
   )
 }
